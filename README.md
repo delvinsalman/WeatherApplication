@@ -2,7 +2,7 @@
 
 An interactive weather app that provides real-time weather updates for cities around the world. Created using **HTML, CSS, and JavaScript**, this app dynamically displays live weather conditions, forecasts, and scenic visuals that adapt to the weather in each city.  
 
-> **Live Demo**: [View it here](https://delvinsalman.github.io/Weather-App/)
+> **Live Demo**: [View it here](https://delvinsalman.github.io/WeatherApplication/)
 
 ---
 
