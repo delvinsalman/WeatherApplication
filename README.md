@@ -9,7 +9,7 @@ An interactive weather app that provides real-time weather updates for cities ar
 ## 📋 **Summary**  
 This weather application delivers real-time updates on weather conditions in any city worldwide. The system integrates an API to fetch live weather data, allowing users to search for cities and access:  
 - **Current weather** (temperature, humidity, wind speed, and "feels like" conditions)  
-- **3-day and 7-day weather forecasts**  
+- **3-day and 5-day weather forecasts**  
 - **Dynamic visuals and icons** that change based on the weather (e.g., a snowy night scene or a cloudy day)  
 - **Live map integration** to view city-specific weather information  
 - **Screensaver mode** that transforms the UI into a scenic city view with the current temperature  
@@ -25,16 +25,18 @@ With a sleek, modern design, the app is simple to use, whether on desktop or mob
 - **Temperature**: Current, high, and low for the day  
 - **Humidity & Cloud Cover**: Shows how clear or cloudy the weather is  
 - **"Feels Like" Temperature**: What the weather actually feels like based on wind chill, humidity, etc.  
-<img width="1512" alt="Screenshot 2024-12-15 at 10 02 39 AM" src="https://github.com/user-attachments/assets/07c6f7d5-11c9-4e93-a128-d6cf3f5572ee" />
+<img width="1512" height="757" alt="Screenshot 2025-10-11 at 4 30 19 PM" src="https://github.com/user-attachments/assets/ddfcb174-6a48-41ef-b71e-3700c7fc60c6" />
+
 
 ---
 
-### 📅 **3 & 7 Day Forecasts**  
+### 📅 **3 & 5 Day Forecasts**  
 > Get a complete weather outlook for both short-term and long-term forecasts.  
 - View a **3-day forecast** for an upcoming weekend or short trip.  
-- Access a **7-day forecast** for a week-long outlook.  
+- Access a **5-day forecast** for a week-long outlook.  
 
-![3 & 7 Day Forecasts](https://github.com/user-attachments/assets/0701a1cb-575e-4890-b526-99ea6466ca53)  
+<img width="598" height="594" alt="Screenshot 2025-10-11 at 4 31 42 PM" src="https://github.com/user-attachments/assets/8967852a-5ad5-4105-aba2-d7506c597a4c" />
+
 
 ---
 
@@ -47,11 +49,9 @@ With a sleek, modern design, the app is simple to use, whether on desktop or mob
 ---
 
 ### 📱 **Mobile & Touch Gestures**  
-> **Supports landscape mode for mobile devices.**  
+> **Supports portait mode for mobile devices.**  
 - Rotate your phone for an optimized, responsive UI.  
 - Use touch gestures to minimize the weather view and activate a scenic screensaver.  
-
-![Mobile View](https://github.com/user-attachments/assets/f653271d-2964-4879-bb43-e26de7e52384)  
 
 ---
 
@@ -64,17 +64,12 @@ With a sleek, modern design, the app is simple to use, whether on desktop or mob
 
 ## 🔍 **Overview**  
 Here’s a look at some of the app's key screens and UI elements displayed.
-<img width="1512" alt="Screenshot 2024-12-15 at 7 48 44 PM" src="https://github.com/user-attachments/assets/6221bf1f-1611-40b8-a2d0-65c24b2dce6c" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 49 50 PM" src="https://github.com/user-attachments/assets/9c4b6104-e65e-4435-b9f6-2a986e068d74" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 50 12 PM" src="https://github.com/user-attachments/assets/f116abfe-1d53-42f5-bb4a-e6174d290b47" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 50 36 PM" src="https://github.com/user-attachments/assets/c14a34a6-8acc-4e6d-8fcb-6ea312b489da" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 51 01 PM" src="https://github.com/user-attachments/assets/116df4ac-0f40-43ac-a592-388bec09f84f" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 51 25 PM" src="https://github.com/user-attachments/assets/aa7578f5-ed3d-4762-b1ec-27d6178de52b" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 52 05 PM" src="https://github.com/user-attachments/assets/e2d8a0a3-7788-41e2-aaa4-29029d1d83b6" />
-<img width="1512" alt="Screenshot 2024-12-15 at 7 52 34 PM" src="https://github.com/user-attachments/assets/0c1a2fd7-ea17-4492-b7d3-7e7eaeb4012c" />
-
-
-
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 33 20 PM" src="https://github.com/user-attachments/assets/5af6bf12-7cb2-4502-90c8-67f8e2067458" />
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 33 44 PM" src="https://github.com/user-attachments/assets/97318a30-20b0-4344-b996-27a27ade9749" />
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 33 55 PM" src="https://github.com/user-attachments/assets/c7e6a1c6-2920-44bd-9567-caa63cc76cea" />
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 34 37 PM" src="https://github.com/user-attachments/assets/81b05f43-f3d7-47c4-a013-c76444b456c7" />
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 34 58 PM" src="https://github.com/user-attachments/assets/5c25025e-b559-450b-9c35-a63a69d59164" />
+<img width="1512" height="752" alt="Screenshot 2025-10-11 at 4 39 15 PM" src="https://github.com/user-attachments/assets/ef8624d6-2c33-4814-a8f5-6a41e1985550" />
 
 ---
 
@@ -113,15 +108,6 @@ Here’s a look at some of the app's key screens and UI elements displayed.
 ## 🌐 **Live View**  
 Experience the weather app live here:  
 🔗 [**View Live Demo**](https://delvinsalman.github.io/Weather-App/)
-
----
-
-## 💡 **Future Enhancements**  
-Here are some ideas for improving the app in the future:  
-- **Add weather alerts** for extreme conditions (e.g., storm warnings).  
-- **Customizable themes** for light/dark modes.  
-- **More animations** to add smooth transitions and weather-based motion effects.  
-- **Offline mode** that displays cached weather data.  
 
 ---
 
