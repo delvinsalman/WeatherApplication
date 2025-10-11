@@ -107,7 +107,7 @@ Here’s a look at some of the app's key screens and UI elements displayed.
 
 ## 🌐 **Live View**  
 Experience the weather app live here:  
-🔗 [**View Live Demo**](https://delvinsalman.github.io/Weather-App/)
+🔗 [**View Live Demo**](https://delvinsalman.github.io/WeatherApplication/)
 
 ---
 
