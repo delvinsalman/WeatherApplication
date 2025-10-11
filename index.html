@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Weather App</title>
+    <title>WeatherApplication | Weather Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -12,152 +12,234 @@
 <body>
     <div class="weather-app">
         <div class="container">
-            <h3 class="brand">
-                Weather Search Application
-                🌍
-                <button id="toggle-panel" class="toggle-button">
-                    <i class="fas fa-hand-pointer"></i>
-                </button>
-            </h3>
-            
-            <p class="small-text"><em>Powered By, Weatherapi.com.</em></p>
-            
-            <div>
-                <h1 class="temp">16&#176;</h1>
-                <div class="city-time">
-                    <h1 class="name">Toronto</h1>
-                    <small>
-                        <span class="time">06:09</span>
-                        <span class="date">Monday Sep 19</span>
-                    </small>
+            <div class="header">
+                <div class="brand-section">
+                    <h1 class="brand">
+                        <i class="fas fa-cloud-sun"></i>
+                        Weather Application
+                    </h1>
+                    <p class="tagline">Advanced Weather Intelligence Giving You Real Time Updates.</p>
                 </div>
-                <div class="weather">
-                    <img src="./icons/day/113.png" class="icon" alt="icon" width="50" height="50"/>
-                    <span class="condition">Cloudy</span>
+                <div class="controls">
+                    <button id="toggle-panel" class="toggle-button" title="Toggle Side Panel">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <button id="refresh-data" class="refresh-button" title="Refresh Weather Data">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
                 </div>
             </div>
+            
+            <div class="current-weather">
+                <div class="weather-main-centered">
+                    <div class="location-time">
+                        <h1 class="name">Toronto</h1>
+                        <div class="datetime">
+                            <span class="time">06:09</span>
+                            <span class="date">Monday Sep 19</span>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-condition-centered">
+                        <div class="temperature-section">
+                            <h1 class="temp">16<span class="degree">&#176;</span></h1>
+                            <div class="feels-like">
+                                Feels like <span class="feels-like-value">18&#176;C</span>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-condition">
+                            <img src="./icons/day/113.png" class="icon" alt="Weather Icon" width="80" height="80"/>
+                            <span class="condition">Cloudy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="weather-highlights-bottom">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="highlight-data">
+                        <span class="value wind">8 km/h</span>
+                        <span class="label">Wind Speed</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="highlight-data">
+                        <span class="value humidity">64%</span>
+                        <span class="label">Humidity</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="highlight-data">
+                        <span class="value cloud">89%</span>
+                        <span class="label">Cloud Cover</span>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="highlight-data">
+                        <span class="value uv">5</span>
+                        <span class="label">UV Index</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Attribution moved to bottom -->
         </div>
         
         <div class="panel">
-            <form id="locationInput">
-                <input type="text" class="search" placeholder="Search Location..."/>
-                <button type="submit" class="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-            <ul>
-            </ul>
-            <h2>World Cities Suggestions 
-                <button id="resetButton" onclick="resetCities()" class="reset-btn">🔄</button>
-            </h2>
+            <div class="panel-header">
+                <div class="panel-title">
+                    <h2>Weather Dashboard</h2>
+                    <button id="close-panel" class="close-button" title="Close Panel">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
             
-            <ul class="cities">
-                <li class="city">Berlin 🇩🇪</li>
-                <li class="city">Plovdiv 🇧🇬</li>
-                <li class="city">Kópavogur 🇮🇸</li>
-                <li class="city">Helsinki 🇫🇮</li>
-                <li class="city">Lisbon 🇵🇹</li>
-                <li class="city">Barcelona 🇪🇸</li>
-                <li class="city">Belgrade 🇷🇸</li>
-                <li class="city">Maastricht 🇳🇱</li>
-                <li class="city">Paris 🇫🇷</li>
-                <li class="city">Mexico 🇲🇽</li>
-                <li class="city">Chicago 🇺🇸</li>
-                <li class="city">Phoenix 🇺🇸</li>
-                <li class="city">Montreal 🇨🇦</li>
-                <li class="city">Medellín 🇨🇴</li>
-                <li class="city">Salvador 🇧🇷</li>
-                <li class="city">Curitiba 🇧🇷</li>
-                <li class="city">Córdoba 🇦🇷</li>
-                <li class="city">Mendoza 🇦🇷</li>
-                <li class="city">Paramaribo 🇸🇷</li>
-                <li class="city">Valparaíso 🇨🇱</li>
-                <li class="city">Accra 🇬🇭</li>
-                <li class="city">Lusaka 🇿🇲</li>
-                <li class="city">Banjul 🇬🇲</li>
-                <li class="city">Suva 🇫🇯</li>
-                <li class="city">Wellington 🇳🇿</li>
-            </ul>
+            <div class="search-container">
+                <form id="locationInput">
+                    <div class="search-wrapper">
+                        <input type="text" class="search" placeholder="Search city or location..."/>
+                        <button type="submit" class="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
             
-            <script>
-                let resetCount = 0;
+            <div class="panel-section">
+                <h3>Popular Cities</h3>
+                <div class="cities-grid">
+                    <div class="city-card" data-city="Yakutsk">
+                        <div class="city-flag">🇷🇺</div>
+                        <div class="city-name">Yakutsk</div>
+                        <div class="city-temp">-15°</div>
+                    </div>
+                    <div class="city-card" data-city="London">
+                        <div class="city-flag">🇬🇧</div>
+                        <div class="city-name">London</div>
+                        <div class="city-temp">15°</div>
+                    </div>
+                    <div class="city-card" data-city="Tokyo">
+                        <div class="city-flag">🇯🇵</div>
+                        <div class="city-name">Tokyo</div>
+                        <div class="city-temp">18°</div>
+                    </div>
+                    <div class="city-card" data-city="Paris">
+                        <div class="city-flag">🇫🇷</div>
+                        <div class="city-name">Paris</div>
+                        <div class="city-temp">16°</div>
+                    </div>
+                    <div class="city-card" data-city="Sydney">
+                        <div class="city-flag">🇦🇺</div>
+                        <div class="city-name">Sydney</div>
+                        <div class="city-temp">25°</div>
+                    </div>
+                    <div class="city-card" data-city="Dubai">
+                        <div class="city-flag">🇦🇪</div>
+                        <div class="city-name">Dubai</div>
+                        <div class="city-temp">32°</div>
+                    </div>
+                </div>
+            </div>
             
-                const originalCities = [
-                    'Berlin 🇩🇪', 'Plovdiv 🇧🇬', 'Kópavogur 🇮🇸', 'Helsinki 🇫🇮', 'Lisbon 🇵🇹',
-                    'Barcelona 🇪🇸', 'Belgrade 🇷🇸', 'Maastricht 🇳🇱', 'Paris 🇫🇷', 'Mexico 🇲🇽',
-                    'Chicago 🇺🇸', 'Phoenix 🇺🇸', 'Montreal 🇨🇦', 'Medellín 🇨🇴', 'Salvador 🇧🇷',
-                    'Curitiba 🇧🇷', 'Córdoba 🇦🇷', 'Mendoza 🇦🇷', 'Paramaribo 🇸🇷', 'Valparaíso 🇨🇱',
-                    'Accra 🇬🇭', 'Lusaka 🇿🇲', 'Banjul 🇬🇲', 'Suva 🇫🇯', 'Wellington 🇳🇿'
-                ];
+            <div class="panel-section">
+                <h3>Weather Details</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Pressure</span>
+                        <span class="detail-value pressure">1012 mb</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Visibility</span>
+                        <span class="detail-value visibility">10 km</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Dew Point</span>
+                        <span class="detail-value dew">12&#176;C</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Air Quality</span>
+                        <span class="detail-value air-quality">Good</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Sunrise</span>
+                        <span class="detail-value sunrise">06:45 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Sunset</span>
+                        <span class="detail-value sunset">07:30 PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Moon Phase</span>
+                        <span class="detail-value moon">Waxing Crescent</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Precipitation</span>
+                        <span class="detail-value precipitation">0 mm</span>
+                    </div>
+                </div>
+            </div>
             
-                const alternateCities = [
-                    'Tokyo 🇯🇵', 'Sydney 🇦🇺', 'New York 🇺🇸', 'Cairo 🇪🇬', 'Rome 🇮🇹',
-                    'Rosario 🇦🇷', 'Moscow 🇷🇺', 'Singapore 🇸🇬', 'Cape Town 🇿🇦', 'Lagos 🇳🇬',
-                    'Dubai 🇦🇪', 'London 🇬🇧', 'Toronto 🇨🇦', 'Rio 🇧🇷', 'Berlin 🇩🇪',
-                    'Barcelona 🇪🇸', 'Athens 🇬🇷', 'Mexico 🇲🇽', 'Lagos 🇳🇬', 'Paris 🇫🇷',
-                    'Seoul 🇰🇷', 'Shanghai 🇨🇳', 'Jakarta 🇮🇩', 'Sao Paulo 🇧🇷', 'San Fran 🇺🇸'
-                ];
-            
-                function resetCities() {
-                    const cityElements = document.querySelectorAll('.city');
-            
-                    if (resetCount < 3) {
-                        const citiesToUse = resetCount % 2 === 0 ? alternateCities : originalCities;
-                        cityElements.forEach((city, index) => {
-                            city.textContent = citiesToUse[index % citiesToUse.length];
-                        });
-                        resetCount++;
-                    } else {
-                        cityElements.forEach((city, index) => {
-                            city.textContent = originalCities[index % originalCities.length];
-                        });
-                        resetCount = 0;
-                    }
-                }
-            </script>
-            
-            <style>
-                .reset-btn {
-                    background: none;
-                    border: none;
-                    font-size: 17px;
-                    cursor: pointer;
-                    padding: 0;
-                    line-height: 0;
-                    display: inline;
-                }
-            
-                .reset-btn:hover {
-                    opacity: 0.8;
-                }
-            </style>
-            
-            
-            <ul class="details">
-                <h2>Live Weather Details</h2>
-                <li><span>Cloudy</span><span class="cloud">89%</span></li>
-                <li><span>Humidity</span><span class="humidity">64%</span></li>
-                <li><span>Wind</span><span class="wind">8km/h</span></li>
-                <li><span>Pressure</span><span class="pressure">1012 mb</span></li>
-                <li><span>Visibility</span><span class="visibility">10 km</span></li>
-                <li><span>UV Index</span><span class="uv">5</span></li>
-                <li><span>Dew Point</span><span class="dew">12&#176;C</span></li>
-                <li><span>Feels Like</span><span class="feels-like">18&#176;C</span></li>
-            </ul>
-
-            <div class="forecast">
-                <h4>3-Day Forecast</h4>
-                <ul class="three-day"></ul>
-                <h4>7-Day Forecast</h4>
-                <ul class="seven-day"></ul>
+            <div class="panel-section">
+                <h3>Weather Alerts</h3>
+                <div class="alerts-container">
+                    <div class="alert-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span>No active weather alerts for this location</span>
+                    </div>
+                </div>
             </div>
 
-            <div id="map" style="height: 400px;"></div>
+            <div class="panel-section">
+                <h3>Forecast</h3>
+                <div class="forecast-tabs">
+                    <button class="tab-button active" data-tab="3-day">3-Day</button>
+                    <button class="tab-button" data-tab="7-day">5-Day</button>
+                </div>
+                
+                <div class="forecast-container">
+                    <div class="forecast-tab-content active" id="3-day">
+                        <div class="three-day-forecast"></div>
+                    </div>
+                    <div class="forecast-tab-content" id="7-day">
+                        <div class="seven-day-forecast"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>Location Map</h3>
+                <div id="map"></div>
+            </div>
+
+            <!-- Attribution moved to bottom of panel -->
+            <div class="attribution-panel">
+                <p><em>Powered by Weatherapi.com</em></p>
+            </div>
         </div>
     </div>
 
     <div class="loading">
-        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." />
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
     </div>
 
     <script src="main.js"></script>
