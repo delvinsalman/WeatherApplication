@@ -44,11 +44,7 @@ No build step or framework — open `index.html` in a browser or use a local ser
 
 ## Screenshots
 
-Add your own screenshots to the `screenshots` folder and reference them below. Suggested names: `interface.png`, `forecast-3day.png`, `forecast-7day.png`, `panel.png`, `dark-mode.png`.
-
 ### Main interface (home)
-
-*Add a screenshot of the main weather view: location, current temp, condition, hourly strip, and details.*
 
 <img width="1503" height="768" alt="Screenshot 2026-02-04 at 2 33 06 PM" src="https://github.com/user-attachments/assets/7952501a-b7ad-43c8-b9a8-b90c45343c54" />
 
