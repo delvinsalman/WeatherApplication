@@ -21,6 +21,17 @@ const forecastList7day = document.getElementById('forecast-list-7day');
 const alertsSection = document.getElementById('alerts-section');
 const alertsContainer = document.getElementById('alerts-container');
 
+// --- HELPER FOR SAFE IMAGES (Fixes GitHub Pages Mixed Content) ---
+function getIconUrl(iconPath) {
+    if (!iconPath) return '';
+    // If it already has https, return it
+    if (iconPath.startsWith('https:')) return iconPath;
+    // If it has http, force it to https
+    if (iconPath.startsWith('http:')) return iconPath.replace('http:', 'https:');
+    // If it starts with // (protocol relative), add https:
+    return `https:${iconPath}`;
+}
+
 function showLoading(show) {
     if (show) {
         loading.classList.add('visible');
@@ -255,7 +266,10 @@ function applyCurrentWeather(data) {
 
     document.querySelector('.temp-value').textContent = Math.round(cur.temp_c);
     document.querySelector('.condition').textContent = cur.condition.text;
-    document.querySelector('.condition-icon').src = 'https:' + cur.condition.icon;
+
+    // UPDATED: Use safe icon helper
+    document.querySelector('.condition-icon').src = getIconUrl(cur.condition.icon);
+
     document.querySelector('.feels-like-value').textContent = Math.round(cur.feelslike_c) + '°';
     document.querySelector('.feels-like-detail').textContent = Math.round(cur.feelslike_c) + '°';
 
@@ -306,12 +320,13 @@ function applyForecast(forecastDays) {
         if (hours.length >= 24) break;
     }
 
+    // UPDATED: Use safe icon helper inside map
     hourlyTrack.innerHTML = hours.slice(0, 24).map(h => {
         const precip = (h.chance_of_rain || 0) > 0 ? (h.chance_of_rain + '%') : ((h.chance_of_snow || 0) > 0 ? (h.chance_of_snow + '%') : '');
         return `
             <div class="hourly-item">
                 <span class="hour">${formatHour(h.time)}</span>
-                <img class="hour-icon" src="https:${h.condition.icon}" alt="">
+                <img class="hour-icon" src="${getIconUrl(h.condition.icon)}" alt="">
                 <span class="hour-temp">${Math.round(h.temp_c)}°</span>
                 ${precip ? `<span class="hour-precip">${precip}</span>` : ''}
             </div>
@@ -319,6 +334,7 @@ function applyForecast(forecastDays) {
     }).join('');
 
     function renderForecastRows(days) {
+        // UPDATED: Use safe icon helper inside map
         return days.map(day => {
             const rainChance = day.day.daily_chance_of_rain != null ? day.day.daily_chance_of_rain : day.day.daily_chance_of_snow;
             return `
@@ -326,7 +342,7 @@ function applyForecast(forecastDays) {
                     <span class="forecast-day-name">${dayName(day.date)}</span>
                     <span class="forecast-day-date">${shortDate(day.date)}</span>
                     <div class="forecast-mid">
-                        <img src="https:${day.day.condition.icon}" alt="">
+                        <img src="${getIconUrl(day.day.condition.icon)}" alt="">
                         <span class="forecast-condition-text">${day.day.condition.text}</span>
                     </div>
                     <span class="forecast-rain">${rainChance != null ? rainChance + '%' : '—'}</span>
