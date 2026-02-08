@@ -1,4 +1,4 @@
-const API_KEY = '3e340f52f153489a81d190716260402;
+const API_KEY = '3e340f52f153489a81d190716260402';
 let cityInput = 'Toronto';
 let map = null;
 let forecastData = null;
